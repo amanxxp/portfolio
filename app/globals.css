@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ::selection {
+    @apply bg-white text-black; /* Apply Tailwind utilities */
+  }
+}
+body {
+  cursor: url('cursor.cur') ,auto; 
+}
+h1:hover{
+  cursor: url('cursorblack.cur'), auto;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
