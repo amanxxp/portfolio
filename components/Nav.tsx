@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/utils/cn";
+import Link from "next/link";
+import batman from "@/public/batmanreal.png"
 
 export default function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-2" />
-      
     </div>
   );
 }
@@ -19,42 +20,48 @@ function Navbar({ className }: { className?: string }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
+        <Link href={"/"}>
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item="Home"
+          ></MenuItem>
+        </Link>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
+            <Link href="/">Web Development</Link>
+            <Link href="/interface-design">Interface Design</Link>
+            <Link href="/seo">Search Engine Optimization</Link>
+            <Link href="/branding">Branding</Link>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            {/* <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            /> */}
-          </div>
-        </MenuItem>
+        <Link href={"/projects"}>
+          <MenuItem setActive={setActive} active={active} item="Projects">
+            <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+              <ProductItem
+                title="Finance.io"
+                href="https://github.com/amanxxp/finance.app"
+                src="/batmanreal.png"
+                description="Track every penny with precision and manage your finances effortlessly."
+              />
+              <ProductItem
+                title="VibeNet"
+                href="https://github.com/amanxxp/Twitter"
+                src="/batmanreal.png"
+                description="Engage with a vibrant community, Where every interaction brings people closer together."
+                // Join VibeNet to engage with a vibrant community, share your passions, and discover new connections. Where every interaction brings people closer together.
+                // Engage with a vibrant community and discover new connections. Where every interaction brings people closer together.
+              />
+              <ProductItem
+                title="Saarthi"
+                href="https://github.com/amanxxp/Saarthi"
+                src="/whiteBatman.jpg"
+                description="Empower every woman with job opportunities, health resources, education, and government schemes for a brighter future."
+              />
+            </div>
+          </MenuItem>
+        </Link>
+
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
